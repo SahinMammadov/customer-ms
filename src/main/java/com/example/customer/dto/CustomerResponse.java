@@ -12,6 +12,7 @@ public class CustomerResponse {
     private UUID cif;
     private String name;
     private String surname;
+    private String username;
     private LocalDate birthDate;
     private BigDecimal balance;
 }

@@ -11,4 +11,5 @@ import java.util.UUID;
 public interface CustomerRepository extends JpaRepository<Customer, UUID> {
     Optional<Customer> findByCif(UUID cif);
 
+    Optional<Customer> findByUsername(String username);
 }
