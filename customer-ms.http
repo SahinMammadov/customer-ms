@@ -1,0 +1,16 @@
+POST http://localhost:8082/api/v1/customers
+Content-Type: application/json
+
+{
+  "name": "Mammad",
+  "surname": "Yahyayev",
+  "birthDate": "2001-08-01",
+  "balance": "120.45"
+}
+
+###
+GET http://localhost:8082/api/v1/customers/665324c3-57c3-46e7-a034-32ff8513fc88
+
+### Get All Customers
+GET http://localhost:8082/api/v1/customers
+

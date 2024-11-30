@@ -6,24 +6,30 @@ import com.example.customer.model.Customer;
 import com.example.customer.repository.CustomerRepository;
 import com.example.customer.service.CustomerService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class CustomerServiceImpl implements CustomerService {
 
-    private CustomerRepository customerRepository;
+    private final CustomerRepository customerRepository;
 
     @Override
+    @Transactional
     public CustomerResponse createCustomer(CustomerRequest customerRequest) {
         Customer customer = mapCustomerRequestToCustomer(customerRequest);
-        customer = customerRepository.save(customer);
-        return mapCustomerToCustomerResponse(customer);
+        customer.setCif(UUID.randomUUID());
+        Customer savedCustomer = customerRepository.save(customer);
+        log.debug("Saved customer with cif: {}", savedCustomer.getCif());
+        return mapCustomerToCustomerResponse(savedCustomer);
     }
 
     @Override

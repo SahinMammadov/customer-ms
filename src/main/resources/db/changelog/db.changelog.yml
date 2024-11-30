@@ -1,4 +1,4 @@
 databaseChangeLog:
   - includeAll:
-      path: db/changelog/tbl-customer/20240523-1-create-table-customer.yaml
+      path: db/changelog/tbl-customer
 

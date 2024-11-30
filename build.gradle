@@ -23,10 +23,7 @@ repositories {
 	mavenCentral()
 }
 ext {
-	set('springCloudVersion', "2023.0.2")
 	set('liquibaseCoreVersion', "4.22.0")
-	set('jUnitVersion', '5.10.2')
-	set('iUnitMockitoVersion', '5.11.0')
 
 }
 
@@ -35,6 +32,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'org.postgresql:postgresql'
+	implementation "org.liquibase:liquibase-core:${liquibaseCoreVersion}"
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
