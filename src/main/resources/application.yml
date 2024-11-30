@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: customer
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://${DB_HOST}:${DB_PORT}/${POSTGRES_DB}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+    hikari:
+      schema: customer
+  jpa:
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+    show-sql: true
+  liquibase:
+    enabled: ${LIQUIBASE_ENABLE:true}
+    change-log: classpath:db/changelog/db.changelog.yml
+    default-schema: customer
+  jackson:
+    date-format: yyyy-MM-dd
+server:
+  port: ${SERVER_PORT}
+  servlet:
+    context-path: /api/v1/customers
